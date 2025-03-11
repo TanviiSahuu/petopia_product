@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt  # Adjust if requirements are inside folders
+          pip install -r requirements.txt
 
       # 🛑 Step 4: Load Kubeconfig (Required for Kubernetes Deployment)
       - name: Setup Kubeconfig
@@ -44,7 +44,7 @@ jobs:
       # 🛑 Step 6: Build & Push Docker Images for Microservices
       - name: Build & Push Docker Images
         run: |
-          docker build -t tanviisahuu/petopia_product:latest ./petopia_product
+          docker build -t tanviisahuu/petopia_product:latest .
 
           docker push tanviisahuu/petopia_product:latest
 
@@ -54,7 +54,7 @@ jobs:
           kubectl apply -f petopia_product/k8s/p-deployment.yaml
           kubectl apply -f petopia_product/k8s/p-service.yaml
 
-          kubectl apply -f k8s/ingress.yaml  # Apply Ingress if applicable
+          kubectl apply -f k8s/ingress.yaml
 
       # 🛑 Step 8: Verify Deployment
       - name: Verify Deployment
