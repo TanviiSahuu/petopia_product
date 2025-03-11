@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pet-product
+  labels:
+    app: pet-product
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pet-product
+  template:
+    metadata:
+      labels:
+        app: pet-product
+    spec:
+      containers:
+        - name: pet-product
+          image: aditisri1311/pet_product:latest
+          ports:
+            - containerPort: 8002
+          env:
+            - name: DEBUG
+              value: "true"
+            - name: DB_HOST
+              value: "wj48254.central-india.azure"
+            - name: DB_NAME
+              value: "pet_db"
+            - name: DB_SCHEMA
+              value: "pet_schema1"
+            - name: DB_WAREHOUSE
+              value: "pet_dw"
+            - name: DB_USER
+              value: "TanviiSahuu"
+            - name: DB_PASSWORD
+              value: "Snowflake@2025"
