@@ -27,11 +27,12 @@ jobs:
           pip install -r requirements.txt  # Adjust if requirements are inside folders
 
       # 🛑 Step 4: Load Kubeconfig (Required for Kubernetes Deployment)
-      - name: Configure Kubeconfig
-        run: echo "$KUBECONFIG" | base64 --decode > $HOME/.kube/config
+      - name: Setup Kubeconfig
+        run: |
+         mkdir -p $HOME/.kube
+         echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
         shell: bash
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+
 
       # 🛑 Step 5: Log in to Docker Hub (Optional: Needed only if pushing images)
       - name: Log in to Docker Hub
