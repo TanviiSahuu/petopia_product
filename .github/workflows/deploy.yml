@@ -62,10 +62,10 @@ jobs:
       # 🛑 Step 7: Apply Kubernetes Manifests
       - name: Deploy to Minikube
         run: |
-          kubectl apply -f petopia_product/p-deployment.yaml
-          kubectl apply -f petopia_product/p-service.yaml
+          kubectl apply -f p-deployment.yaml
+          kubectl apply -f p-service.yaml
 
-          kubectl apply -f /ingress.yaml
+          kubectl apply -f ingress.yaml
 
       # 🛑 Step 8: Verify Deployment
       - name: Verify Deployment
