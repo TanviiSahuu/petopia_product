@@ -14,7 +14,7 @@ spec:
     spec:  # This 'spec' was missing in the error!
       containers:
         - name: product-service
-          image: aditisri1311/product-service:latest
+          image: tanviisahuu/petopia_product:latest
           ports:
             - containerPort: 8002
           resources:
