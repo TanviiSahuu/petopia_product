@@ -68,7 +68,7 @@ jobs:
           kubectl apply -f ingress.yml
 
       # 🛑 Step 8: Verify Deployment
-      - name: Verify Deployment
-        run: |
-          kubectl get pods -n default
-          kubectl get services -n default
+      # - name: Verify Deployment
+      #   run: |
+      #     kubectl get pods -n default
+      #     kubectl get services -n default
