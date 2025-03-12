@@ -60,12 +60,12 @@ jobs:
           docker push tanviisahuu/petopia_product:latest
 
       # 🛑 Step 7: Apply Kubernetes Manifests
-      - name: Deploy to Minikube
-        run: |
-          kubectl apply -f p-deployment.yml
-          kubectl apply -f p-service.yml
+      # - name: Deploy to Minikube
+      #   run: |
+      #     kubectl apply -f p-deployment.yml
+      #     kubectl apply -f p-service.yml
 
-          kubectl apply -f ingress.yml
+      #     kubectl apply -f ingress.yml
 
       # 🛑 Step 8: Verify Deployment
       # - name: Verify Deployment
